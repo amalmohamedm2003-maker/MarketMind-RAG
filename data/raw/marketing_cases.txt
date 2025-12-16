@@ -1,0 +1,9 @@
+Case: SaaS Growth
+Observation: Organic traffic stagnated despite high content volume.
+Solution: Shifted from keyword-based SEO to topic clusters.
+Result: 42% increase in organic conversions in 4 months.
+
+Case: Ecommerce Paid Ads
+Observation: High CPC but low conversion rate.
+Solution: Funnel-based retargeting and landing page optimization.
+Result: CPA reduced by 35%.

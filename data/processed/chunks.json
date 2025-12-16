@@ -1,0 +1,142 @@
+[
+  {
+    "chunk_id": "google_analytics_0",
+    "text": "Source: google_analytics Channel/Campaign: Organic Search Metric: sessions Value: 1200 Business Context: Traffic acquisition Date: 2024-01-01",
+    "source": "google_analytics",
+    "channel": "Organic Search",
+    "metric": "sessions"
+  },
+  {
+    "chunk_id": "google_analytics_0",
+    "text": "Source: google_analytics Channel/Campaign: Organic Search Metric: conversions Value: 32 Business Context: Funnel performance Date: 2024-01-01",
+    "source": "google_analytics",
+    "channel": "Organic Search",
+    "metric": "conversions"
+  },
+  {
+    "chunk_id": "google_analytics_0",
+    "text": "Source: google_analytics Channel/Campaign: Paid Search Metric: sessions Value: 850 Business Context: Traffic acquisition Date: 2024-01-01",
+    "source": "google_analytics",
+    "channel": "Paid Search",
+    "metric": "sessions"
+  },
+  {
+    "chunk_id": "google_analytics_0",
+    "text": "Source: google_analytics Channel/Campaign: Paid Search Metric: conversions Value: 21 Business Context: Funnel performance Date: 2024-01-01",
+    "source": "google_analytics",
+    "channel": "Paid Search",
+    "metric": "conversions"
+  },
+  {
+    "chunk_id": "google_analytics_0",
+    "text": "Source: google_analytics Channel/Campaign: Social Metric: sessions Value: 420 Business Context: Traffic acquisition Date: 2024-01-01",
+    "source": "google_analytics",
+    "channel": "Social",
+    "metric": "sessions"
+  },
+  {
+    "chunk_id": "google_analytics_0",
+    "text": "Source: google_analytics Channel/Campaign: Social Metric: conversions Value: 8 Business Context: Funnel performance Date: 2024-01-01",
+    "source": "google_analytics",
+    "channel": "Social",
+    "metric": "conversions"
+  },
+  {
+    "chunk_id": "google_analytics_0",
+    "text": "Source: google_analytics Channel/Campaign: Organic Search Metric: sessions Value: 1400 Business Context: Traffic acquisition Date: 2024-01-02",
+    "source": "google_analytics",
+    "channel": "Organic Search",
+    "metric": "sessions"
+  },
+  {
+    "chunk_id": "google_analytics_0",
+    "text": "Source: google_analytics Channel/Campaign: Organic Search Metric: conversions Value: 41 Business Context: Funnel performance Date: 2024-01-02",
+    "source": "google_analytics",
+    "channel": "Organic Search",
+    "metric": "conversions"
+  },
+  {
+    "chunk_id": "google_analytics_0",
+    "text": "Source: google_analytics Channel/Campaign: Paid Search Metric: sessions Value: 900 Business Context: Traffic acquisition Date: 2024-01-02",
+    "source": "google_analytics",
+    "channel": "Paid Search",
+    "metric": "sessions"
+  },
+  {
+    "chunk_id": "google_analytics_0",
+    "text": "Source: google_analytics Channel/Campaign: Paid Search Metric: conversions Value: 19 Business Context: Funnel performance Date: 2024-01-02",
+    "source": "google_analytics",
+    "channel": "Paid Search",
+    "metric": "conversions"
+  },
+  {
+    "chunk_id": "google_ads_0",
+    "text": "Source: google_ads Channel/Campaign: Brand_Search Metric: cost Value: 15000 Business Context: Paid acquisition cost Date: 2025-12-16",
+    "source": "google_ads",
+    "channel": "Brand_Search",
+    "metric": "cost"
+  },
+  {
+    "chunk_id": "google_ads_0",
+    "text": "Source: google_ads Channel/Campaign: Brand_Search Metric: conversions Value: 45 Business Context: Paid conversion efficiency Date: 2025-12-16",
+    "source": "google_ads",
+    "channel": "Brand_Search",
+    "metric": "conversions"
+  },
+  {
+    "chunk_id": "google_ads_0",
+    "text": "Source: google_ads Channel/Campaign: Generic_Search Metric: cost Value: 22000 Business Context: Paid acquisition cost Date: 2025-12-16",
+    "source": "google_ads",
+    "channel": "Generic_Search",
+    "metric": "cost"
+  },
+  {
+    "chunk_id": "google_ads_0",
+    "text": "Source: google_ads Channel/Campaign: Generic_Search Metric: conversions Value: 28 Business Context: Paid conversion efficiency Date: 2025-12-16",
+    "source": "google_ads",
+    "channel": "Generic_Search",
+    "metric": "conversions"
+  },
+  {
+    "chunk_id": "google_ads_0",
+    "text": "Source: google_ads Channel/Campaign: Display_Retargeting Metric: cost Value: 12000 Business Context: Paid acquisition cost Date: 2025-12-16",
+    "source": "google_ads",
+    "channel": "Display_Retargeting",
+    "metric": "cost"
+  },
+  {
+    "chunk_id": "google_ads_0",
+    "text": "Source: google_ads Channel/Campaign: Display_Retargeting Metric: conversions Value: 18 Business Context: Paid conversion efficiency Date: 2025-12-16",
+    "source": "google_ads",
+    "channel": "Display_Retargeting",
+    "metric": "conversions"
+  },
+  {
+    "chunk_id": "seo_0",
+    "text": "Source: seo Channel/Campaign: organic Metric: keyword:digital marketing tools Value: 29000 Business Context: SEO opportunity analysis Date: 2025-12-16",
+    "source": "seo",
+    "channel": "organic",
+    "metric": "keyword:digital marketing tools"
+  },
+  {
+    "chunk_id": "seo_0",
+    "text": "Source: seo Channel/Campaign: organic Metric: keyword:growth marketing strategy Value: 14000 Business Context: SEO opportunity analysis Date: 2025-12-16",
+    "source": "seo",
+    "channel": "organic",
+    "metric": "keyword:growth marketing strategy"
+  },
+  {
+    "chunk_id": "seo_0",
+    "text": "Source: seo Channel/Campaign: organic Metric: keyword:marketing automation ai Value: 9000 Business Context: SEO opportunity analysis Date: 2025-12-16",
+    "source": "seo",
+    "channel": "organic",
+    "metric": "keyword:marketing automation ai"
+  },
+  {
+    "chunk_id": "case_study_0",
+    "text": "Source: case_study Channel/Campaign: strategy Metric: case_text Value: 0 Business Context: Case: SaaS Growth Observation: Organic traffic stagnated despite high content volume. Solution: Shifted from keyword-based SEO to topic clusters. Result: 42% increase in organic conversions in 4 months. Case: Ecommerce Paid Ads Observation: High CPC but low conversion rate. Solution: Funnel-based retargeting and landing page optimization. Result: CPA reduced by 35%. Date: 2025-12-16",
+    "source": "case_study",
+    "channel": "strategy",
+    "metric": "case_text"
+  }
+]

@@ -1,0 +1,30 @@
+source,channel,metric,value,date,business_context
+google_analytics,Organic Search,sessions,1200,2024-01-01,Traffic acquisition
+google_analytics,Organic Search,conversions,32,2024-01-01,Funnel performance
+google_analytics,Paid Search,sessions,850,2024-01-01,Traffic acquisition
+google_analytics,Paid Search,conversions,21,2024-01-01,Funnel performance
+google_analytics,Social,sessions,420,2024-01-01,Traffic acquisition
+google_analytics,Social,conversions,8,2024-01-01,Funnel performance
+google_analytics,Organic Search,sessions,1400,2024-01-02,Traffic acquisition
+google_analytics,Organic Search,conversions,41,2024-01-02,Funnel performance
+google_analytics,Paid Search,sessions,900,2024-01-02,Traffic acquisition
+google_analytics,Paid Search,conversions,19,2024-01-02,Funnel performance
+google_ads,Brand_Search,cost,15000,2025-12-16,Paid acquisition cost
+google_ads,Brand_Search,conversions,45,2025-12-16,Paid conversion efficiency
+google_ads,Generic_Search,cost,22000,2025-12-16,Paid acquisition cost
+google_ads,Generic_Search,conversions,28,2025-12-16,Paid conversion efficiency
+google_ads,Display_Retargeting,cost,12000,2025-12-16,Paid acquisition cost
+google_ads,Display_Retargeting,conversions,18,2025-12-16,Paid conversion efficiency
+seo,organic,keyword:digital marketing tools,29000,2025-12-16,SEO opportunity analysis
+seo,organic,keyword:growth marketing strategy,14000,2025-12-16,SEO opportunity analysis
+seo,organic,keyword:marketing automation ai,9000,2025-12-16,SEO opportunity analysis
+case_study,strategy,case_text,0,2025-12-16,"Case: SaaS Growth
+Observation: Organic traffic stagnated despite high content volume.
+Solution: Shifted from keyword-based SEO to topic clusters.
+Result: 42% increase in organic conversions in 4 months.
+
+Case: Ecommerce Paid Ads
+Observation: High CPC but low conversion rate.
+Solution: Funnel-based retargeting and landing page optimization.
+Result: CPA reduced by 35%.
+"

@@ -1,0 +1,12 @@
+project_name: MarketMind AI
+version: 1.0
+log_level: INFO
+
+data_paths:
+  raw: data/raw
+  processed: data/processed
+
+business_goals:
+  - Increase conversions
+  - Reduce CPA
+  - Improve funnel efficiency

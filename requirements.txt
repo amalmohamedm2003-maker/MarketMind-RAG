@@ -1,0 +1,13 @@
+pandas
+numpy
+scikit-learn
+pyyaml
+tqdm
+sentence-transformers
+faiss-cpu
+google-generativeai==0.3.2
+fastapi
+uvicorn
+pydantic
+python-dotenv
+loguru
