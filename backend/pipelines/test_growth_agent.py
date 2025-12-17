@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.append(os.getcwd())
 
-from rag.growth_agent import GrowthAgent
+from backend.rag.growth_agent import GrowthAgent
 
 
 agent = GrowthAgent()
