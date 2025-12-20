@@ -12,11 +12,14 @@ scikit-learn
 tqdm
 requests
 
-# RAG
-sentence-transformers
+# Vector DB
 faiss-cpu
+sentence-transformers
 
 # LLM
-google-generativeai==0.3.2
 transformers
 sentencepiece
+
+# Cloud LLMs
+google-generativeai
+openai

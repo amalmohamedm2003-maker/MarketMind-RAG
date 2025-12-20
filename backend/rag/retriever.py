@@ -1,24 +1,24 @@
+import os
 import faiss
-import json
-import numpy as np
 from sentence_transformers import SentenceTransformer
-
-INDEX_PATH = "vectorstore/faiss_index/index.faiss"
-META_PATH = "vectorstore/faiss_index/metadata.json"
+from core.settings import FAISS_INDEX_PATH
+from loguru import logger
 
 class MarketingRetriever:
     def __init__(self):
-        self.index = faiss.read_index(INDEX_PATH)
-        with open(META_PATH) as f:
-            self.metadata = json.load(f)
-        self.model = SentenceTransformer("all-MiniLM-L6-v2")
+        self.embedder = SentenceTransformer("all-MiniLM-L6-v2")
 
-    def retrieve(self, query, k=5):
-        q_emb = self.model.encode([query], normalize_embeddings=True)
-        D, I = self.index.search(np.array(q_emb), k)
+        if os.path.exists(FAISS_INDEX_PATH):
+            self.index = faiss.read_index(FAISS_INDEX_PATH)
+            logger.info("FAISS index loaded")
+        else:
+            self.index = None
+            logger.warning("FAISS index missing – NO-INDEX MODE")
 
-        results = []
-        for idx in I[0]:
-            results.append(self.metadata[idx])
+    def retrieve(self, query: str, k: int = 3):
+        if not self.index:
+            return []
 
-        return results
+        vec = self.embedder.encode([query])
+        _, idxs = self.index.search(vec, k)
+        return [f"Doc {i}" for i in idxs[0]]

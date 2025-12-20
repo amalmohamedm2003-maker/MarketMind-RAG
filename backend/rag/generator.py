@@ -1,11 +1,25 @@
-from loguru import logger
-from llm.gemini_llm import GeminiRouter
+from transformers import pipeline
 
-router = GeminiRouter()
+print("Loading reasoning LLM (FLAN-T5)...")
 
-def generate_answer(context: str, question: str) -> str:
+llm = pipeline(
+    "text2text-generation",
+    model="google/flan-t5-base",
+    device=-1
+)
+def generate_answer(context_docs, question):
+    if not context_docs or len(" ".join(context_docs).strip()) < 50:
+        return "Insufficient data in knowledge base to answer this question."
+
+    context = "\n".join(context_docs)
+
     prompt = f"""
-You are a senior digital marketing strategist.
+You are a senior performance marketing expert.
+
+STRICT RULES:
+- Use ONLY the context below
+- If the context does not contain an answer, say "Not enough information available"
+- Do NOT give generic explanations
 
 Context:
 {context}
@@ -13,23 +27,13 @@ Context:
 Question:
 {question}
 
-Answer clearly and practically.
+Answer with specific, actionable advice:
 """
 
-    logger.info("=== LLM PROMPT START ===")
-    logger.info(prompt[:1500])  # avoid log overflow
-    logger.info("=== LLM PROMPT END ===")
+    result = llm(
+        prompt,
+        max_new_tokens=200,
+        do_sample=False
+    )[0]["generated_text"]
 
-    try:
-        response = router.generate(prompt)
-        logger.info(f"Raw LLM response: {response}")
-
-        if response and response.strip():
-            return response.strip()
-
-        logger.warning("LLM returned empty text")
-        return ""
-
-    except Exception as e:
-        logger.exception("LLM generation failed")
-        return ""
+    return result.strip()

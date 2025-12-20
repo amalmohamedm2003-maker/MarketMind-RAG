@@ -1,23 +1,15 @@
-from fastapi import APIRouter, HTTPException
-from api.schemas import AnalyzeRequest, AnalyzeResponse
+from fastapi import APIRouter
+from pydantic import BaseModel
 from rag.growth_agent import GrowthAgent
-from core.logging import get_logger
+from loguru import logger
 
 router = APIRouter()
-logger = get_logger()
-
 agent = GrowthAgent()
 
-@router.post("/analyze")
-def analyze(req: AnalyzeRequest):
-    try:
-        result = agent.analyze(req.question)
-        return result
+class Query(BaseModel):
+    question: str
 
-    except Exception as e:
-        logger.exception("Analysis failed")
-        return {
-            "answer": "System temporarily unavailable. Please retry.",
-            "faithfulness": 0.0,
-            "sources_used": 0
-        }
+@router.post("/analyze")
+def analyze(req: Query):
+    logger.info(f"Query: {req.question}")
+    return agent.analyze(req.question)

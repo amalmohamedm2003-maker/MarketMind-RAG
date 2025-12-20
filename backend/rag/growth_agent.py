@@ -1,30 +1,31 @@
-from rag.generator import generate_answer
 from rag.retriever import MarketingRetriever
+from rag.llm_router import LLMRouter
 from rag.metrics import faithfulness
-from loguru import logger
 
 class GrowthAgent:
     def __init__(self):
         self.retriever = MarketingRetriever()
+        self.llm = LLMRouter()
 
-    def analyze(self, question: str) -> dict:
+    def analyze(self, question: str):
         docs = self.retriever.retrieve(question)
+
         context = "\n".join(docs)
+        prompt = f"""
+You are a senior growth marketing expert.
+Answer clearly and practically.
 
-        answer = generate_answer(context, question)
+Context:
+{context}
 
-        if not answer.strip():
-            logger.warning("Using deterministic fallback answer")
-            answer = (
-                "CPA can be reduced by focusing on high-intent keywords, "
-                "adding negative keywords, improving landing page relevance, "
-                "and reallocating spend to high-performing campaigns."
-            )
+Question:
+{question}
+"""
 
-        score = faithfulness(answer, docs)
+        answer = self.llm.generate(prompt)
 
         return {
             "answer": answer,
-            "faithfulness": round(score, 2),
+            "faithfulness": faithfulness(answer, context),
             "sources_used": len(docs)
         }
