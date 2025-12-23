@@ -40,12 +40,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build Docker image
+      - name: Build Docker image (CI)
         run: |
-          docker build -t marketmind-rag:ci -f backend/Dockerfile backend
+          docker build \
+            -f backend/Dockerfile.ci \
+            -t marketmind-rag:ci \
+            .
 
       - name: Smoke test container
         run: |
-          docker run -d -p 8000:8000 --name marketmind marketmind-rag:ci
+          docker run -d -p 8000:8000 marketmind-rag:ci
           sleep 10
           curl -f http://localhost:8000/docs
+      
