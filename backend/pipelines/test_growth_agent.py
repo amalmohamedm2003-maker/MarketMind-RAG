@@ -1,7 +1,7 @@
 def test_growth_agent_runs():
     """
     CI-safe GrowthAgent test.
-    Ensures pipeline executes end-to-end.
+    Validates structured business output.
     """
 
     from backend.rag.growth_agent import GrowthAgent
@@ -10,4 +10,10 @@ def test_growth_agent_runs():
     result = agent.analyze("How to reduce CPA?")
 
     assert isinstance(result, dict)
-    assert "answer" in result
+
+    # Business-grade structured assertions
+    assert "key_insights" in result
+    assert "recommendations" in result
+    assert "metrics_impact" in result
+    assert "confidence_level" in result
+    assert "sources" in result
