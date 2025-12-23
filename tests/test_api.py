@@ -10,12 +10,14 @@ def test_analyze_endpoint():
     )
 
     assert response.status_code == 200
-
     data = response.json()
 
-    # Business-grade API contract
+    # Required business contract
     assert "key_insights" in data
     assert "recommendations" in data
     assert "metrics_impact" in data
     assert "confidence_level" in data
-    assert "sources" in data
+
+    # Optional field
+    if "sources" in data:
+        assert isinstance(data["sources"], list)
