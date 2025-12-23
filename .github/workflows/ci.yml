@@ -42,7 +42,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t marketmind-rag:ci .
+          docker build -t marketmind-rag:ci -f backend/Dockerfile backend
 
       - name: Smoke test container
         run: |
