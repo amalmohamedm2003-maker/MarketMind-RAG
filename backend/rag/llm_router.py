@@ -1,8 +1,8 @@
 from loguru import logger
-from core.settings import LLM_PROVIDER
-from rag.llm_local import LocalLLM
-from rag.llm_gemini import GeminiLLM
-from rag.llm_openai import OpenAILLM
+from backend.core.settings import LLM_PROVIDER
+from backend.rag.llm_local import LocalLLM
+from backend.rag.llm_gemini import GeminiLLM
+from backend.rag.llm_openai import OpenAILLM
 
 class LLMRouter:
     def __init__(self):

@@ -1,4 +1,4 @@
-from core.settings import OPENAI_API_KEY
+from backend.core.settings import OPENAI_API_KEY
 
 class OpenAILLM:
     def __init__(self):

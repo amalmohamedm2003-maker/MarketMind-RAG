@@ -1,7 +1,7 @@
 import os
 import faiss
 from sentence_transformers import SentenceTransformer
-from core.settings import FAISS_INDEX_PATH
+from backend.core.settings import FAISS_INDEX_PATH
 from loguru import logger
 
 class MarketingRetriever:

@@ -1,4 +1,4 @@
-from core.settings import GEMINI_API_KEY
+from backend.core.settings import GEMINI_API_KEY
 
 class GeminiLLM:
     def __init__(self):
