@@ -1,20 +1,20 @@
-name: MarketMind CI Pipeline
+name: CI - MarketMind RAG
+
 
 on:
   push:
-    branches: [ "main", "dev" ]
+    branches: [ main ]
   pull_request:
-    branches: [ "main" ]
 
 jobs:
-# -------------------------------------------------
-# 1️⃣ TEST JOB — Backend + API (CI-safe)
-# -------------------------------------------------
   test:
     runs-on: ubuntu-latest
 
+    env:
+      PYTHONPATH: .
+
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Set up Python
@@ -28,54 +28,49 @@ jobs:
           pip install -r backend/requirements.txt
           pip install pytest
 
-      - name: Set PYTHONPATH
-        run: |
-          echo "PYTHONPATH=." >> $GITHUB_ENV
-
-      - name: Run unit & API tests
+      - name: Run tests
         run: |
           pytest backend/pipelines/test_retrieval.py \
                  backend/pipelines/test_growth_agent.py \
                  tests/test_api.py
 
-# -------------------------------------------------
-# 2️⃣ DOCKER BUILD + BACKEND SMOKE TEST
-# -------------------------------------------------
   docker-build:
     runs-on: ubuntu-latest
     needs: test
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Build Docker image (CI)
         run: |
-          docker build -f Dockerfile.ci -t marketmind-rag:ci .
+          docker build \
+            -f backend/Dockerfile.ci \
+            -t marketmind-rag:ci \
+            .
 
-      - name: Run container
+      - name: Smoke test container
         run: |
-          docker run -d -p 8000:8000 --name marketmind-ci marketmind-rag:ci
-          sleep 15
+          docker run -d -p 8000:8000 --name marketmind marketmind-rag:ci
 
-      - name: Smoke test API
-        run: |
-          curl -f http://localhost:8000/docs
+          echo "Waiting for API to start..."
+          for i in {1..20}; do
+            if curl -s http://localhost:8000/docs > /dev/null; then
+              echo "✅ API is up"
+              exit 0
+            fi
+            sleep 2
+          done
 
-      - name: Cleanup container
-        if: always()
-        run: |
-          docker rm -f marketmind-ci || true
+          echo "❌ API did not start"
+          docker logs marketmind
+          exit 1
 
-# -------------------------------------------------
-# 3️⃣ STREAMLIT SMOKE TEST (UI AVAILABILITY)
-# -------------------------------------------------
-  streamlit-smoke-test:
+    streamlit-smoke-test:
     runs-on: ubuntu-latest
     needs: test
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Set up Python
@@ -94,6 +89,34 @@ jobs:
           nohup streamlit run streamlit_app/app.py --server.port 8501 &
           sleep 15
 
-      - name: Smoke test Streamlit UI
+      - name: Smoke test Streamlit
         run: |
           curl -f http://localhost:8501
+  streamlit-smoke-test:
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r backend/requirements.txt
+          pip install streamlit
+
+      - name: Start Streamlit app
+        run: |
+          nohup streamlit run streamlit_app/app.py --server.port 8501 &
+          sleep 15
+
+      - name: Smoke test Streamlit
+        run: |
+          curl -f http://localhost:8501
+    
