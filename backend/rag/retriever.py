@@ -8,6 +8,12 @@ class MarketingRetriever:
     def __init__(self):
         self.embedder = SentenceTransformer("all-MiniLM-L6-v2")
 
+        # ✅ NEW (CI-safe)
+        if os.getenv("CI") == "true":
+            self.index = None
+            logger.warning("CI MODE – FAISS disabled")
+            return
+
         if os.path.exists(FAISS_INDEX_PATH):
             self.index = faiss.read_index(FAISS_INDEX_PATH)
             logger.info("FAISS index loaded")
@@ -22,7 +28,3 @@ class MarketingRetriever:
         vec = self.embedder.encode([query])
         _, idxs = self.index.search(vec, top_k)
         return [f"Doc {i}" for i in idxs[0]]
-
-    def add_documents(self, texts, embeddings):
-        self.index.add(embeddings)
-        self.texts.extend(texts)
