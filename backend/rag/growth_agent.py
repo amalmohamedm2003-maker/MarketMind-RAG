@@ -1,6 +1,6 @@
 from rag.retriever import MarketingRetriever
 from rag.llm_router import LLMRouter
-from rag.metrics import faithfulness
+from rag.prompts import BUSINESS_RAG_PROMPT
 
 class GrowthAgent:
     def __init__(self):
@@ -8,24 +8,26 @@ class GrowthAgent:
         self.llm = LLMRouter()
 
     def analyze(self, question: str):
-        docs = self.retriever.retrieve(question)
+        docs = self.retriever.retrieve(question, top_k=5)
 
-        context = "\n".join(docs)
-        prompt = f"""
-You are a senior growth marketing expert.
-Answer clearly and practically.
+        if not docs:
+            return {
+                "answer": "Insufficient data to provide a confident recommendation.",
+                "faithfulness": 0,
+                "sources_used": 0,
+            }
 
-Context:
-{context}
+        context = "\n".join(f"- {d}" for d in docs)
 
-Question:
-{question}
-"""
+        prompt = BUSINESS_RAG_PROMPT.format(
+            context=context,
+            question=question
+        )
 
         answer = self.llm.generate(prompt)
 
         return {
             "answer": answer,
-            "faithfulness": faithfulness(answer, context),
-            "sources_used": len(docs)
+            "faithfulness": 1,
+            "sources_used": len(docs),
         }

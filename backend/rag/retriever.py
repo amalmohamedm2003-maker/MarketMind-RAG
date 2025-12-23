@@ -15,10 +15,14 @@ class MarketingRetriever:
             self.index = None
             logger.warning("FAISS index missing – NO-INDEX MODE")
 
-    def retrieve(self, query: str, k: int = 3):
+    def retrieve(self, query, top_k=5):
         if not self.index:
             return []
 
         vec = self.embedder.encode([query])
-        _, idxs = self.index.search(vec, k)
+        _, idxs = self.index.search(vec, top_k)
         return [f"Doc {i}" for i in idxs[0]]
+
+    def add_documents(self, texts, embeddings):
+        self.index.add(embeddings)
+        self.texts.extend(texts)

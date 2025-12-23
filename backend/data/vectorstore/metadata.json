@@ -1,0 +1,50 @@
+[
+  {
+    "text": "SEO Page /home has 1200 clicks, 45000 impressions, CTR 2.6, average position 4.2.",
+    "source": "seo"
+  },
+  {
+    "text": "SEO Page /pricing has 850 clicks, 30000 impressions, CTR 2.8, average position 3.9.",
+    "source": "seo"
+  },
+  {
+    "text": "SEO Page /blog/seo-tips has 2300 clicks, 120000 impressions, CTR 1.9, average position 6.1.",
+    "source": "seo"
+  },
+  {
+    "text": "Page /home has 3400 sessions, bounce rate 0.42, average session duration 180 seconds.",
+    "source": "analytics"
+  },
+  {
+    "text": "Page /pricing has 2100 sessions, bounce rate 0.38, average session duration 210 seconds.",
+    "source": "analytics"
+  },
+  {
+    "text": "Page /blog/seo-tips has 5200 sessions, bounce rate 0.55, average session duration 145 seconds.",
+    "source": "analytics"
+  },
+  {
+    "text": "Important marketing keyword: reduce CPA",
+    "source": "keywords"
+  },
+  {
+    "text": "Important marketing keyword: seo optimization",
+    "source": "keywords"
+  },
+  {
+    "text": "Important marketing keyword: landing page conversion",
+    "source": "keywords"
+  },
+  {
+    "text": "Important marketing keyword: google ads optimization",
+    "source": "keywords"
+  },
+  {
+    "text": "Case: SaaS company reduced CPA by 32% by improving landing page speed and targeting long-tail keywords.",
+    "source": "case"
+  },
+  {
+    "text": "Case: Ecommerce brand improved ROAS by combining SEO insights with Google Ads bidding strategies.",
+    "source": "case"
+  }
+]
