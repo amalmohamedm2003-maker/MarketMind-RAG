@@ -1,5 +1,8 @@
 FROM python:3.11-slim
 
+# 🔥 CRITICAL FIX FOR CI IMPORTS
+ENV PYTHONPATH=/app
+
 WORKDIR /app
 
 RUN apt-get update && apt-get install -y \
@@ -18,4 +21,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY backend ./backend
 
 EXPOSE 8000
+
 CMD ["python", "backend/run_api.py"]
