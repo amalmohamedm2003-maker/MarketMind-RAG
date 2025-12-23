@@ -43,10 +43,12 @@ jobs:
 
       - name: Build Docker image (CI)
         run: |
-          docker build \
-            -f backend/Dockerfile.ci \
+          IMAGE_TAG=${GITHUB_SHA::7}
+          docker build -f Dockerfile.ci \
             -t marketmind-rag:ci \
-            .
+            -t marketmind-rag:$IMAGE_TAG \
+            -t marketmind-rag:latest .
+      
 
       - name: Smoke test container
         run: |
