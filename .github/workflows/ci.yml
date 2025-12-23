@@ -1,5 +1,6 @@
 name: CI - MarketMind RAG
 
+
 on:
   push:
     branches: [ main ]
