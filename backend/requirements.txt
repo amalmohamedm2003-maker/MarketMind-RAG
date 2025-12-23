@@ -1,25 +1,20 @@
-# API
 fastapi
 uvicorn
 pydantic
 python-dotenv
 loguru
 
-# Data
-pandas
 numpy<2.0
+pandas
 scikit-learn
 tqdm
 requests
 
-# Vector DB
-faiss-cpu
 sentence-transformers
+faiss-cpu
 
-# LLM
 transformers
 sentencepiece
 
-# Cloud LLMs
+openai>=1.0.0
 google-generativeai
-openai
