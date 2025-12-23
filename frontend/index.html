@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MarketMind – Growth Intelligence</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>📊 MarketMind</h1>
+    <p>SEO & Analytics Growth Intelligence</p>
+  </header>
+
+  <main>
+    <textarea id="question" placeholder="Ask a business question...">
+How can I reduce CPA using SEO and analytics data?
+    </textarea>
+
+    <button onclick="runAnalysis()">Analyze</button>
+
+    <section id="loading" class="hidden">⏳ Analyzing...</section>
+
+    <section id="result" class="hidden">
+      <h2>📌 Summary</h2>
+      <p id="summary"></p>
+
+      <h2>🔍 Key Insights</h2>
+      <ul id="insights"></ul>
+
+      <h2>🚀 Recommendations</h2>
+      <ul id="recommendations"></ul>
+
+      <h2>📈 Metrics Impact</h2>
+      <pre id="metrics"></pre>
+
+      <h2>🧠 Confidence</h2>
+      <span id="confidence" class="badge"></span>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

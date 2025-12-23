@@ -3,7 +3,7 @@ from loguru import logger
 
 class LocalLLM:
     def __init__(self):
-        logger.info("Loading local CPU LLM (flan-t5-small)")
+        logger.info("Loading local CPU LLM (flan-t5-base)")
         self.pipe = pipeline(
             "text2text-generation",
             model="google/flan-t5-base",
