@@ -1,4 +1,6 @@
 name: MarketMind CI
+env:
+  CI: true
 
 on:
   push:

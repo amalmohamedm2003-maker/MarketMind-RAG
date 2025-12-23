@@ -11,6 +11,11 @@ query = "How can I reduce CPA in paid search campaigns?"
 
 result = agent.analyze(query)
 
-print("\nQUESTION:\n", result["question"])
+def test_growth_agent_runs():
+    from backend.rag.growth_agent import GrowthAgent
+    agent = GrowthAgent()
+    result = agent.analyze("How to reduce CPA?")
+    assert "answer" in result
+
 print("\nAI GROWTH INSIGHTS:\n", result["insights"])
 print("\nSources Used:", result["sources_used"])

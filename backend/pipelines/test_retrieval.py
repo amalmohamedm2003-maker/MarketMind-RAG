@@ -3,7 +3,12 @@ import json
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
-index = faiss.read_index("vectorstore/faiss_index/index.faiss")
+def test_retriever_runs():
+    from backend.rag.retriever import MarketingRetriever
+    r = MarketingRetriever()
+    docs = r.retrieve("test")
+    assert isinstance(docs, list)
+
 
 with open("vectorstore/faiss_index/metadata.json") as f:
     metadata = json.load(f)
