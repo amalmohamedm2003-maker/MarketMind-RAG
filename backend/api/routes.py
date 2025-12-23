@@ -1,6 +1,7 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
-from rag.growth_agent import GrowthAgent
+from backend.rag.growth_agent import GrowthAgent
+
 from loguru import logger
 
 router = APIRouter()

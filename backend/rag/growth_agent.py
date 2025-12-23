@@ -1,6 +1,6 @@
-from rag.retriever import MarketingRetriever
-from rag.llm_router import LLMRouter
-from rag.prompts import BUSINESS_JSON_RAG_PROMPT
+from backend.rag.retriever import MarketingRetriever
+from backend.rag.llm_router import LLMRouter
+from backend.rag.prompts import BUSINESS_JSON_RAG_PROMPT
 import json
 import re
 

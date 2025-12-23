@@ -315,3 +315,11 @@ We’ll do:
 * Resume cloud later
 
 👉 Say **“Next: CI/CD pipeline”**
+
+
+
+
+1️⃣ Add Docker build + smoke test in CI
+2️⃣ Add FAISS mock to avoid index dependency in CI
+3️⃣ Add Streamlit app test stage
+4️⃣ Add manual CD workflow (deploy-ready)
